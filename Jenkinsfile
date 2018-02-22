@@ -10,6 +10,7 @@ pipeline {
       steps {
         echo 'Building...'
         sh 'yarn'
+        sh 'yarn build --prod'
       }
     }
   }
