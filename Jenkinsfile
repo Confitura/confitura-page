@@ -9,7 +9,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'Building...'
-        sh 'npm config set cache /tmp'
+        sh 'npm config set cache /tmp ;npm config set cache /tmp'
         sh 'npm config set cache /tmp; npm install'
       }
     }
