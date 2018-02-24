@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo 'Building...'
+        echo 'Building... $JOB_NAME'
         sh 'yarn'
         sh 'yarn build --prod'
       }
