@@ -56,6 +56,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "port": 8080,
             "browserTarget": "confitura-page:build"
           },
           "configurations": {
