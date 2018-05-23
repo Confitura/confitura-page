@@ -55,6 +55,10 @@ export class LikeService {
         const token = sha.getHash('HEX');
         return token;
     }
+
+    getSummary() {
+        return this.http.get('/likes/summary');
+    }
 }
 
 export interface Like {
