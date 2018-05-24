@@ -1,6 +1,6 @@
 {
   "name": "confitura-page",
-  "version": "14.2.0",
+  "version": "15.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
@@ -8,7 +8,7 @@
     "start-with-proxy": "ng serve --aot --proxy-config proxy.conf.json",
     "build": "ng build",
     "build:full": "yarn lint && yarn test && yarn build --prod",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng build --prod  && yarn deploy:only",
