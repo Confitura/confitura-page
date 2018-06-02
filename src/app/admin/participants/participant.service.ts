@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {map} from 'rxjs/operators';
-import {Participant} from './participant.model';
+import {catchError, map} from 'rxjs/operators';
+import {Participant, Voucher} from './participant.model';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 
 @Injectable()
@@ -19,6 +19,21 @@ export class ParticipantService {
 
   getOne(id: string): Observable<Participant> {
     return this.http.get<Participant>(`/participants/${id}`);
+  }
+
+  getByUser(id: string) {
+    return this.http.get<Participant>(`/users/${id}/participationData`);
+  }
+
+  addVoucher(p: Participant) {
+    return this.http.get<Voucher>(`/participants/${p.id}/voucher`).pipe(
+      catchError(error => {
+        return Observable.from([null]);
+      }),
+      map(it => {
+        p.voucher = it;
+        return p;
+      }));
   }
 
   save(participant: Participant) {

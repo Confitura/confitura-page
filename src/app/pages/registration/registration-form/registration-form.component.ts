@@ -42,6 +42,9 @@ export class RegistrationFormComponent {
   save() {
     this.submitted = true;
     if (this.form.valid) {
+      if (!this.model.voucher.id) {
+        this.model.voucher = null;
+      }
       this.service.save(this.model)
         .pipe(
           catchError(error => {
