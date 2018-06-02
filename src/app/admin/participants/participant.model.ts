@@ -20,3 +20,11 @@ export class Participant {
     Object.assign(this, obj);
   }
 }
+
+export class Voucher {
+  id: string;
+
+  constructor(obj: any = {}) {
+    Object.assign(this, obj);
+  }
+}
