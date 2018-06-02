@@ -48,7 +48,11 @@ export class RegistrationFormComponent {
       this.service.save(this.model)
         .pipe(
           catchError(error => {
-            this.error = 'Something went wrong. Please try again or contact us at confitura@confitura.pl';
+            if (error.error === 'INVALID_VOUCHER') {
+              this.error = 'Voucher you provided is invalid';
+            } else {
+              this.error = 'Something went wrong. Please try again or contact us at confitura@confitura.pl';
+            }
             return Observable.throwError(error);
           })
         )
