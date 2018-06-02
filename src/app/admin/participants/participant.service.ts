@@ -22,7 +22,11 @@ export class ParticipantService {
   }
 
   save(participant: Participant) {
-    return this.http.post(`participants/${participant.id}`, participant);
+    if (participant.id) {
+      return this.http.put(`participants/${participant.id}`, participant);
+    } else {
+      return this.http.post(`participants`, participant);
+    }
   }
 
   sendReminder() {

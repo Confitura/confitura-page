@@ -11,23 +11,12 @@
         <input type="text" id="buyer" class="form-control" [value]="model.originalBuyer" disabled>
 
       </div>
-      <div class="form-group required">
-        <label for="name">full name</label>
-        <input type="text" id="name" class="form-control" [(ngModel)]="model.name" #name="ngModel" name="name" required
+      <div class="form-group">
+        <label for="voucher">voucher</label>
+        <input type="text" id="voucher" class="form-control" [(ngModel)]="model.voucher.id" #voucher="ngModel" name="voucher"
                maxlength="255">
-        <div class="alert alert-danger" role="alert" *ngIf="name.errors?.required && (name.touched || submitted)">
+        <div class="alert alert-danger" role="alert" *ngIf="voucher.errors?.required && (voucher.touched || submitted)">
           This field is required
-        </div>
-      </div>
-      <div class="form-group required">
-        <label for="email">e-mail</label>
-        <input type="email" id="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" name="email" required
-               maxlength="255" email>
-        <div class="alert alert-danger" role="alert" *ngIf="email.errors?.required && (email.touched || submitted)">
-          This field is required
-        </div>
-        <div class="alert alert-danger" role="alert" *ngIf="email.errors?.email && (email.touched || submitted)">
-          This is not valid email
         </div>
       </div>
       <div class="form-group required">
