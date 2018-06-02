@@ -7,11 +7,6 @@
     <div class="alert alert-danger" role="alert" *ngIf="error"><strong>Motyla Noga..</strong> {{error}}</div>
     <form (ngSubmit)="save()" #registrationForm="ngForm" novalidate *ngIf="model">
       <div class="form-group">
-        <label for="buyer">original buyer</label>
-        <input type="text" id="buyer" class="form-control" [value]="model.originalBuyer" disabled>
-
-      </div>
-      <div class="form-group">
         <label for="voucher">voucher</label>
         <input type="text" id="voucher" class="form-control" [(ngModel)]="model.voucher.id" #voucher="ngModel" name="voucher"
                maxlength="255">
