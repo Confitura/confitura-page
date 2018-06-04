@@ -12,6 +12,10 @@ export class Participant {
   creationDate: string;
   registrationDate: string;
   ticketSendDate: string;
+
+  public constructor(obj: any = {}) {
+    Object.assign(this, obj);
+  }
 }
 
 export class Voucher {
