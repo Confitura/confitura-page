@@ -10,16 +10,10 @@
         <input matInput placeholder="voucher" type="text" id="voucher2"
              name="voucher" formControlName="voucher"
              maxlength="255">
+        <mat-hint>Correct voucher must be provided to participate in confitura</mat-hint>
       </mat-form-field>
-      <mat-form-field>
-        <input type="text" id="city" placeholder="city" formControlName="city"
-             matInput name="city"
-             required maxlength="255">
-        <mat-error *ngIf="city.invalid">
-          This field is required
-        </mat-error>
-      </mat-form-field>
-      <label>sex*: </label>
+
+      <label>t-shirt cut*: </label>
       <mat-radio-group formControlName="sex">
         <mat-radio-button type="radio" name="sex" value="F" required> female</mat-radio-button>
         <mat-radio-button type="radio" name="sex" value="M" required> male</mat-radio-button>
@@ -40,35 +34,7 @@
           This field is required
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <mat-select name="experience" id="experience" formControlName="experience" required placeholder="your experience">
-          <mat-option></mat-option>
-          <mat-option value="I am just learning">I am just learning</mat-option>
-          <mat-option value="Less than a year">Less than a year</mat-option>
-          <mat-option value="1-2 years">1-2 years</mat-option>
-          <mat-option value="2-4 years">2-4 years</mat-option>
-          <mat-option value="4-8 years">4-8 years</mat-option>
-          <mat-option value="Over 8 years">Over 8 years</mat-option>
-        </mat-select>
-        <mat-error *ngIf="experience.invalid">
-          This field is required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select name="role" id="role" formControlName="role" required placeholder="your role" >
-          <mat-option></mat-option>
-          <mat-option value="student">Student</mat-option>
-          <mat-option value="Developer">Developer</mat-option>
-          <mat-option value="Team Leader">Team Leader</mat-option>
-          <mat-option value="Project Leader">Project Leader</mat-option>
-          <mat-option value="Architect">Architect</mat-option>
-          <mat-option value="Tester">Tester</mat-option>
-          <mat-option value="Other">Other</mat-option>
-        </mat-select>
-        <mat-error *ngIf="role.invalid">
-          This field is required
-        </mat-error>
-      </mat-form-field>
+
       <mat-form-field>
         <mat-select name="mealOption" id="mealOption" formControlName="mealOption" required placeholder="meal option">
           <mat-option></mat-option>

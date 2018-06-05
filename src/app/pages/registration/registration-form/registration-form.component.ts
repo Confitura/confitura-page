@@ -20,11 +20,8 @@ export class RegistrationFormComponent {
               private formBuilder: FormBuilder) {
     this.registrationForm = formBuilder.group({
       voucher: [null],
-      city: [null, Validators.required],
       sex: [null, Validators.required],
       size: [null, Validators.required],
-      experience: [null, Validators.required],
-      role: [null, Validators.required],
       mealOption: [null, Validators.required]
     });
 
@@ -42,11 +39,8 @@ export class RegistrationFormComponent {
         .subscribe(participant => {
           this.registrationForm.setValue({
             voucher: participant.voucher.id,
-            city: participant.city,
             sex: participant.gender,
             size: participant.size,
-            experience: participant.experience,
-            role: participant.role,
             mealOption: participant.mealOption
           });
         });
@@ -79,13 +73,8 @@ export class RegistrationFormComponent {
     }
   }
 
-
   get voucher() {
     return this.registrationForm.get('voucher');
-  }
-
-  get city() {
-    return this.registrationForm.get('city');
   }
 
   get sex() {
@@ -94,14 +83,6 @@ export class RegistrationFormComponent {
 
   get size() {
     return this.registrationForm.get('size');
-  }
-
-  get experience() {
-    return this.registrationForm.get('experience');
-  }
-
-  get role() {
-    return this.registrationForm.get('role');
   }
 
   get mealOption() {
