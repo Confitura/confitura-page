@@ -15,8 +15,7 @@
         <input type="text" id="city" placeholder="city" formControlName="city"
              matInput name="city"
              required maxlength="255">
-        {{registrationForm['city']|json}}
-        <mat-error *ngIf="city.invalid && (city.dirty || city.touched || submitted)">
+        <mat-error *ngIf="city.invalid">
           This field is required
         </mat-error>
       </mat-form-field>
@@ -37,7 +36,7 @@
           <mat-option value="XL">XL</mat-option>
           <mat-option value="XXL">XXL</mat-option>
         </mat-select>
-        <mat-error *ngIf="size.invalid && (size.dirty || size.touched || submitted)">
+        <mat-error *ngIf="size.invalid">
           This field is required
         </mat-error>
       </mat-form-field>
@@ -51,7 +50,7 @@
           <mat-option value="4-8 years">4-8 years</mat-option>
           <mat-option value="Over 8 years">Over 8 years</mat-option>
         </mat-select>
-        <mat-error *ngIf="experience.invalid && (experience.dirty || experience.touched || submitted)">
+        <mat-error *ngIf="experience.invalid">
           This field is required
         </mat-error>
       </mat-form-field>
@@ -66,7 +65,19 @@
           <mat-option value="Tester">Tester</mat-option>
           <mat-option value="Other">Other</mat-option>
         </mat-select>
-        <mat-error *ngIf="role.invalid && (role.dirty || role.touched || submitted)">
+        <mat-error *ngIf="role.invalid">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select name="mealOption" id="mealOption" formControlName="mealOption" required placeholder="meal option">
+          <mat-option></mat-option>
+          <mat-option value="meat">Meat</mat-option>
+          <mat-option value="vegetarian">Vegetarian</mat-option>
+          <mat-option value="vegan">Vegan</mat-option>
+        </mat-select>
+        <mat-hint>We can't promise all options will be available on conference.</mat-hint>
+        <mat-error *ngIf="mealOption.invalid">
           This field is required
         </mat-error>
       </mat-form-field>

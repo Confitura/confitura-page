@@ -1,3 +1,5 @@
+import {Voucher} from './voucher.model';
+
 export class Participant {
   id: string;
   voucher: Voucher = new Voucher();
@@ -12,16 +14,9 @@ export class Participant {
   creationDate: string;
   registrationDate: string;
   ticketSendDate: string;
+  mealOption: string;
 
   public constructor(obj: any = {}) {
-    Object.assign(this, obj);
-  }
-}
-
-export class Voucher {
-  id: string;
-
-  constructor(obj: any = {}) {
     Object.assign(this, obj);
   }
 }

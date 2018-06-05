@@ -1,17 +1,18 @@
 import {Component, ViewChild} from '@angular/core';
-import {Participant, Voucher} from '../../../admin/participants/participant.model';
+import {Participant} from '../../../admin/participants/participant.model';
 import {ParticipantService} from '../../../admin/participants/participant.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {catchError} from 'rxjs/operators';
+import {Voucher} from '../../../admin/participants/voucher.model';
 
 @Component({templateUrl: './registration-form.component.html', styleUrls: ['./registration-form.component.css']})
 export class RegistrationFormComponent {
   submitted = false;
   error: string;
 
-  private registrationForm: FormGroup;
+  registrationForm: FormGroup;
 
   constructor(private service: ParticipantService,
               private route: ActivatedRoute,
@@ -23,7 +24,8 @@ export class RegistrationFormComponent {
       sex: [null, Validators.required],
       size: [null, Validators.required],
       experience: [null, Validators.required],
-      role: [null, Validators.required]
+      role: [null, Validators.required],
+      mealOption: [null, Validators.required]
     });
 
     const id = this.route.snapshot.params['id'];
@@ -44,7 +46,8 @@ export class RegistrationFormComponent {
             sex: participant.gender,
             size: participant.size,
             experience: participant.experience,
-            role: participant.role
+            role: participant.role,
+            mealOption: participant.mealOption
           });
         });
     } else {
@@ -99,5 +102,9 @@ export class RegistrationFormComponent {
 
   get role() {
     return this.registrationForm.get('role');
+  }
+
+  get mealOption() {
+    return this.registrationForm.get('mealOption');
   }
 }
