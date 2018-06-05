@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {catchError, map} from 'rxjs/operators';
 import {Participant} from './participant.model';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {Voucher} from './voucher.model';
+import {Voucher} from '../vouchers/voucher.model';
 
 @Injectable()
 export class ParticipantService {

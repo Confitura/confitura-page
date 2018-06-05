@@ -1,4 +1,4 @@
-import {Voucher} from './voucher.model';
+import {Voucher} from '../vouchers/voucher.model';
 
 export class Participant {
   id: string;

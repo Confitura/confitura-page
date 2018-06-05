@@ -26,6 +26,7 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 import {VoteListComponent} from './votes/vote-list/vote-list.component';
+import { VouchersComponent } from './vouchers/vouchers-component/vouchers.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import {VoteListComponent} from './votes/vote-list/vote-list.component';
     AgendaEntryComponent,
     PresentationPickerComponent,
     ScannerComponent,
-    VoteListComponent
+    VoteListComponent,
+    VouchersComponent
   ]
 })
 export class AdminModule {

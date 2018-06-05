@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {catchError} from 'rxjs/operators';
-import {Voucher} from '../../../admin/participants/voucher.model';
+import {Voucher} from '../../../admin/vouchers/voucher.model';
 
 @Component({templateUrl: './registration-form.component.html', styleUrls: ['./registration-form.component.css']})
 export class RegistrationFormComponent {
