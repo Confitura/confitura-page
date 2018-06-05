@@ -13,7 +13,7 @@ export class ParticipantService {
   getAll(): Observable<Participant[]> {
     return this.http.get<EmbeddedParticipants>('/participants')
       .pipe(
-        map(response => response._embedded.participants)
+        map(response => response._embedded.participationDatas)
       );
   }
 
@@ -66,5 +66,5 @@ export class ParticipantService {
 }
 
 class EmbeddedParticipants {
-  _embedded: { participants: Participant[] };
+  _embedded: { participationDatas: Participant[] };
 }
