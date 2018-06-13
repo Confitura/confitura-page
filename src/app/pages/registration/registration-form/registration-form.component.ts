@@ -30,14 +30,8 @@ export class RegistrationFormComponent {
               private route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
-              private location: Location,
-              private user: CurrentUser) {
+              private location: Location) {
 
-    if (!this.route.snapshot.params.id) {
-      this.service.getByUser(user.get().jti).subscribe(it =>
-        this.router.navigate(['/registration/form/' + it.id, route.snapshot.params])
-      );
-    }
     this.registrationForm = formBuilder.group({
       voucher: [null, null, this.voucherValid.bind(this)],
       sex: [null, Validators.required],
@@ -49,16 +43,9 @@ export class RegistrationFormComponent {
     });
 
     this.id = this.route.snapshot.params['id'];
-    const voucher = this.route.snapshot.params['voucher'];
+    const voucher = this.route.snapshot.params['voucher'] || '';
     if (this.id) {
       this.service.getOne(this.id)
-        .pipe(
-          catchError(error => {
-            this.error = 'Something went wrong or your token is incorrect.' +
-              ' Please try again or contact us at confitura@confitura.pl';
-            return Observable.throwError(error);
-          })
-        )
         .subscribe(participant => {
           this.registrationForm.setValue({
             voucher: participant.voucher ? participant.voucher.id : voucher,
