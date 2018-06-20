@@ -21,6 +21,14 @@ export class DashboardComponent {
     client.get<(string | number)[][]>('/dashboard/registration').subscribe(it => {
       this.usersChartData.dataTable = it;
     });
+    client.get<(string | number)[][]>('/dashboard/arrivals').subscribe(it => {
+      // @ts-ignore
+      this.arrivalChartData.dataTable = it.map(row => [new Date(<string>row[0]), row[1]]);
+    });
+    client.get<(string | number)[][]>('/dashboard/registrations').subscribe(it => {
+      // @ts-ignore
+      this.registrationsChartData.dataTable = it.map(row => [new Date(<string>row[0]), row[1]]);
+    });
   }
 
   tShirtsChartData = {
@@ -76,6 +84,30 @@ export class DashboardComponent {
       ['registered', 0]
     ],
     options: {'title': 'presentations'},
+  };
+
+  arrivalChartData = {
+    chartType: 'ColumnChart',
+    dataTable: [
+      ['date', 'count'],
+      [new Date(2018, 2, 1, 11), 0],
+      [new Date(2018, 2, 2, 4), 5],
+      [new Date(2018, 2, 3, 21), 22],
+      [new Date(2018, 2, 4, 1), 27],
+    ],
+    options: {'title': 'arrivals'},
+  };
+
+  registrationsChartData = {
+    chartType: 'ColumnChart',
+    dataTable: [
+      ['date', 'count'],
+      [new Date(2018, 2, 1, 11), 0],
+      [new Date(2018, 2, 2, 4), 5],
+      [new Date(2018, 2, 3, 21), 22],
+      [new Date(2018, 2, 4, 1), 27],
+    ],
+    options: {'title': 'registrations'},
   };
 
 }
