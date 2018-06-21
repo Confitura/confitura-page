@@ -1,0 +1,10 @@
+.agenda-table{
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+
+  &__content{
+  border-bottom: 1px solid red;
+   }
+}
+

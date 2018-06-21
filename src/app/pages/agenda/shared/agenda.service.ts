@@ -24,10 +24,13 @@ export class AgendaService {
         const roomIdToIndex = this.idToIndex(rooms);
         const slotIdToIndex = this.idToIndex(slots);
         const matrix = this.createEmptyMatrix(slots, slotIdToIndex, rooms);
-
+        console.log('matrix');
+        console.log(matrix);
         for (const entry of entries) {
           const slotIndex = slotIdToIndex[entry.timeSlotId];
           if (entry.roomId == null) {
+            console.log('slotToindex ' + slotIdToIndex);
+            console.log(matrix[slotIdToIndex]);
             if (matrix[slotIndex][0] == null) {
               matrix[slotIndex][0] = entry;
             } else {
@@ -55,10 +58,14 @@ export class AgendaService {
     for (const entry of entries) {
       roomIdToIndex[entry.id] = index++;
     }
+    console.log('room to index');
+    console.log(roomIdToIndex);
     return roomIdToIndex;
   }
 
   private createEmptyMatrix(slots: any, slotIdToIndex: any, rooms: any) {
+    console.log(slots);
+    console.log(rooms);
     const matrix = new Array(slots.length);
     for (const slot of slots) {
       const slotIndex = slotIdToIndex[slot.id];
