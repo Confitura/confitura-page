@@ -1,4 +1,4 @@
-const _ =require('lodash');
+const _ = require('lodash');
 const uuid = require('uuid/v4');
 const entities = require('./entities');
 const slots = [
@@ -31,7 +31,6 @@ module.exports = (app) => {
       _.flatten(slots.map(slot =>
         rooms.map(room => anEntry(slot, room, entities.presentation()))
       ))
-
     ));
   });
 
@@ -52,6 +51,7 @@ function aSlot(start, end) {
 function anEntry(timeSlot, room, presentation) {
   const timeSlotId = timeSlot.id;
   const roomId = room.id;
-  return ({id: uuid(), timeSlotId, roomId, presentationId: presentation.id, presentation});
+  const presentationId = presentation.id;
+  return {id: uuid(), timeSlotId, roomId, presentationId, presentation};
 }
 
