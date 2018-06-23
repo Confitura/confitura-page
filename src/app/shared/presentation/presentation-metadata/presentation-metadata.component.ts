@@ -15,7 +15,7 @@ export class PresentationMetadataComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   isAccepted(presentation: Presentation) {
     return presentation.status === 'accepted';
   }
