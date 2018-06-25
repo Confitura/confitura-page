@@ -48,6 +48,8 @@ export class RatePresentationComponent implements OnInit {
       }, err => {
         if (err.status === 409) {
           this.error = 'Sorry, but it looks like you already rated this presentation on different device';
+        } else if (err.status === 403) {
+          this.error = 'According to our system you haven\'t passed registration yet, so there is no way you have seen this presentation!';
         } else {
           this.error = 'Something funny happened. Can you try again later? Or just let as know. Error log should be in console';
           console.log('promised error log in console', err);
