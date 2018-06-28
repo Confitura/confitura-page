@@ -2,6 +2,7 @@
   <cf-page-header>agenda</cf-page-header>
   <div class="row-1140 pt-lg-5 pb-lg-5">
     <cf-agenda-filter></cf-agenda-filter>
-    <cf-agenda-table [slots]="slots" [agenda]="agenda" [rooms]="rooms"></cf-agenda-table>
+    <cf-agenda-table [slots]="slots" [agenda]="agenda" [rooms]="rooms" [personalAgenda]="personalAgenda"
+                     (favoriteChanged)="refreshPersonalAgenda()"></cf-agenda-table>
   </div>
 </section>

@@ -9,4 +9,6 @@ export class AgendaEntry {
   presentationId: string;
   presentation: Presentation;
   tags: Tag[];
+  speaker: any;
+  cospeakers: any;
 }
