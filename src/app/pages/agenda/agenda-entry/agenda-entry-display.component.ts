@@ -10,6 +10,8 @@ import {AgendaService} from '../shared/agenda.service';
 export class AgendaEntryDisplayComponent {
   @Input() entry: AgendaEntry;
   @Output() favoriteChanged: EventEmitter<AgendaEntry> = new EventEmitter();
+  @Input() showActions = true;
+
 
   constructor(private service: AgendaService) {
   }

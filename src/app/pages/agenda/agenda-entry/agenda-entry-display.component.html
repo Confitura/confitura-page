@@ -13,7 +13,7 @@
         </span>
   </div>
 
-  <div class="agenda-entry__actions">
+  <div class="agenda-entry__actions" *ngIf="showActions">
     <button mat-button (click)="addToPersonalAgenda()">
       <mat-icon>favorite</mat-icon>
     </button>
