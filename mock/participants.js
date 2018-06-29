@@ -1,25 +1,31 @@
 const _ = require('lodash');
 const uuid = require('uuid/v4');
-const entities = require('./entities');
-const slots = [
-  aSlot('09:00', '09:40'),
-  aSlot('09:40', '10:00'),
-  aSlot('10:00', '10:20')
-];
-const rooms = [
-  aRoom('confitura', 1),
-  aRoom('marmolada', 2),
-  aRoom('dżem', 3),
-  aRoom('marmolada', 4),
-  aRoom('inne', 5),
-];
-
-
 module.exports = (app) => {
 
 
-  app.get('/rooms', function (req, res) {
-    res.send(embedded('rooms', rooms));
+  app.post('/participants/:id/arrived', function (req, res) {
+    const participant = {
+      id: uuid(),
+      size: 'S',
+    };
+    const id = req.params.id;
+    console.log(id);
+    if (id.includes('P')) {
+      participant.participant = true;
+    }
+    if (id.includes('A')) {
+      participant.admin = true;
+    }
+    if (id.includes('V')) {
+      participant.volunteer = true;
+    }
+    if (id.includes('S')) {
+      participant.speaker = true;
+    }
+    if (id.includes('W')) {
+      participant.hasAcceptedPresentation = true;
+    }
+    res.send(participant);
   });
 
   app.get('/time-slots', function (req, res) {
@@ -52,16 +58,6 @@ function anEntry(timeSlot, room, presentation) {
   const timeSlotId = timeSlot.id;
   const roomId = room.id;
   const presentationId = presentation.id;
-  const speaker = presentation.speaker;
-  const cospeakers = presentation.cospeakers;
-  return {
-    id: uuid(),
-    timeSlotId,
-    roomId,
-    presentationId,
-    presentation,
-    speaker,
-    cospeakers
-  };
+  return {id: uuid(), timeSlotId, roomId, presentationId, presentation};
 }
 
