@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Presentation} from '../shared/presentation.model';
 import {PresentationService} from '../shared/presentation.service';
 import {ActivatedRoute, Params} from '@angular/router';
