@@ -44,8 +44,11 @@ export class ProfileViewComponent implements OnInit {
 
   remove(presentation: Presentation) {
     this.confirmation.show('you want to delete this presentation?')
-      .then(() => this.presentationService.remove(presentation)
-        .subscribe(() => this.reload()));
+      .then(() => {
+        this.presentationService
+          .remove(presentation)
+          .subscribe(() => this.reload());
+      });
   }
 
 }

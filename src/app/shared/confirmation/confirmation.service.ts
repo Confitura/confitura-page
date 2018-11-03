@@ -10,10 +10,20 @@ export class ConfirmationService {
   }
 
   show(message: string): Promise<any> {
-    return this.dialog
-      .open(ConfirmationDialogComponent, {
-        data: {message: message}
-      })
-      .afterClosed().toPromise();
+    return new Promise(resolve => {
+      return this.dialog
+        .open(ConfirmationDialogComponent, {
+          width: '500px',
+          data: {message: message}
+        })
+        .afterClosed()
+        .toPromise()
+        .then(confirmed => {
+          if (confirmed) {
+            resolve();
+          }
+        });
+    });
   }
+
 }
