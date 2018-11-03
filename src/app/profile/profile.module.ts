@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {routing} from './profile.routing';
 import {SharedModule} from '../shared/shared.module';
 import {ProfileEditComponent} from './profile-edit/profile-edit.component';
 import {ProfileViewComponent} from './profile-view/profile-view.component';
@@ -9,15 +8,25 @@ import {ProfileCompleteGuard} from './shared/profile-complete-guard.service';
 import {IsAuthenticatedGuard} from './shared/is-authenticated-guard.service';
 import {SpeakerSelectComponent} from './speaker-select/speaker.multiselect.component';
 import {
-  MatButtonModule, MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatSnackBarModule,
-  MatCheckboxModule, MatCardModule
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatRadioModule,
+  MatSnackBarModule
 } from '@angular/material';
-import { CospeakersComponent } from './cospeakers/cospeakers.component';
-import { ParticipationStatusComponent } from './participation-status/participation-status.component';
+import {CospeakersComponent} from './cospeakers/cospeakers.component';
+import {ParticipationStatusComponent} from './participation-status/participation-status.component';
+import {ProfileRoutingModule} from './profile.routing';
 
 
 @NgModule({
-  imports: [routing,
+  imports: [
+    ProfileRoutingModule,
     SharedModule,
     TagInputModule,
     MatFormFieldModule,

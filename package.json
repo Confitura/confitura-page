@@ -6,8 +6,8 @@
     "start": "ng serve --aot",
     "mock": "node mock/mock.js",
     "start-with-proxy": "ng serve --aot --proxy-config proxy.conf.json",
-    "build": "ng build --prod",
-    "build:full": "yarn lint && yarn test && yarn build",
+    "build": "ng build",
+    "build:full": "yarn lint && yarn test && yarn build --prod",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -15,7 +15,9 @@
     "deploy:only": "cd deployment && ansible-playbook confitura-page.yml",
     "release:patch": "yarn build:full && npm version patch && git push --follow-tags",
     "release:minor": "yarn build:full && npm version minor && git push --follow-tags",
-    "release:major": "yarn build:full && npm version major && git push --follow-tags"
+    "release:major": "yarn build:full && npm version major && git push --follow-tags",
+    "build:stats": "yarn build --stats-json",
+    "stats": "webpack-bundle-analyzer dist/stats.json"
   },
   "license": "ISC",
   "dependencies": {
