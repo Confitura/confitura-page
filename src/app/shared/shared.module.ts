@@ -17,21 +17,6 @@ import {ResizeImgPipe} from './resize-img.pipe';
 import {MdPipe} from './md/md.pipe';
 import {PageHeaderComponent} from './page-header/page-header.component';
 import {BackButtonComponent} from './back-button/back-button.component';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatChipsModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatMenuModule,
-  MatProgressSpinnerModule,
-  MatSliderModule,
-  MatSnackBarModule,
-  MatTooltipModule
-} from '@angular/material';
 import {PresentationComponent} from './presentation/presentation.component';
 import {LikeButtonComponent} from './presentation/like/like-button/like-button.component';
 import {LikeService} from './presentation/like/like.service';
@@ -44,27 +29,16 @@ import {AuthenticatedDirective} from './authenticated.directive';
 import {CommentsComponent} from './presentation/comments/comments.component';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {ConfirmationDialogComponent} from './confirmation/confirmation-dialog.component';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
   imports: [
-    Ng2GoogleChartsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSliderModule,
     CommonModule,
     FileUploadModule,
     FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatMenuModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule
+    Ng2GoogleChartsModule,
+    MaterialModule,
   ],
   declarations: [
     AuthenticatedDirective,
@@ -112,12 +86,11 @@ import {ConfirmationDialogComponent} from './confirmation/confirmation-dialog.co
     BackButtonComponent,
     PresentationComponent,
     CommentsComponent,
-    MatTooltipModule,
     PresentationMetadataComponent,
     RatePresentationDialogDirective,
     RatePresentationComponent,
+    MaterialModule,
   ],
-  providers: [PersonModalService, LikeService],
   entryComponents: [
     RatePresentationDialogComponent,
     ConfirmationDialogComponent

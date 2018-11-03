@@ -7,7 +7,9 @@ import * as jsSHA from 'jssha';
 
 const TOKEN_NAME = 'like-token';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LikeService {
 
     private cache: Like[];
