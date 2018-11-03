@@ -8,7 +8,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './core/core.module';
 import {ServiceWorkerModule} from '@angular/service-worker';
-import {HotkeyModule} from 'angular2-hotkeys';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import {HotkeyModule} from 'angular2-hotkeys';
     BrowserAnimationsModule,
     RegistrationModule,
     HttpClientModule,
-    HotkeyModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: false})
   ],
   declarations: [AppComponent],

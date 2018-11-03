@@ -15,7 +15,7 @@ import {HotkeyModule} from 'angular2-hotkeys';
     V4pRoutingModule,
     MatIconModule,
     MatButtonModule,
-    HotkeyModule,
+    HotkeyModule.forRoot()
   ],
   declarations: [
     VotingComponent,

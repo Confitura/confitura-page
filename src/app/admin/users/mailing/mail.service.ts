@@ -1,8 +1,6 @@
-import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import 'rxjs-compat/add/operator/map';
 
 @Injectable()
 export class MailService {
@@ -11,7 +9,7 @@ export class MailService {
   }
 
   getTemplates(): Observable<string[]> {
-    return this.http.get('/mailing/templates').pipe(map(it => <string[]> it));
+    return this.http.get<string[]>('/mailing/templates');
   }
 
   sendMail(template: string, info: MessageInfo[]) {
