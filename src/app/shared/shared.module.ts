@@ -43,6 +43,7 @@ import {RatePresentationDialogDirective} from './presentation/rate-presentation/
 import {AuthenticatedDirective} from './authenticated.directive';
 import {CommentsComponent} from './presentation/comments/comments.component';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
+import {ConfirmationDialogComponent} from './confirmation/confirmation-dialog.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import {Ng2GoogleChartsModule} from 'ng2-google-charts';
     PresentationMetadataComponent,
     RatePresentationDialogComponent,
     RatePresentationDialogDirective,
-    RateSliderComponent
+    RateSliderComponent,
+    ConfirmationDialogComponent
   ],
   exports: [
     CommonModule,
@@ -113,10 +115,13 @@ import {Ng2GoogleChartsModule} from 'ng2-google-charts';
     MatTooltipModule,
     PresentationMetadataComponent,
     RatePresentationDialogDirective,
-    RatePresentationComponent
+    RatePresentationComponent,
   ],
   providers: [PersonModalService, LikeService],
-  entryComponents: [RatePresentationDialogComponent]
+  entryComponents: [
+    RatePresentationDialogComponent,
+    ConfirmationDialogComponent
+  ]
 })
 export class SharedModule {
 
